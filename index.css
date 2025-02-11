@@ -1,0 +1,217 @@
+:root {
+  --font-size: 18px;
+  --bg-color: white;
+  --text-color: black;
+  --link-color: rgb(0, 121, 182);
+  --visited-link-color: rgb(125, 0, 174);
+}
+
+/* Dark mode toggle */
+#color-mode:checked~* {
+  --bg-color: black;
+  --text-color: white;
+  --link-color: rgb(101, 196, 244);
+  --visited-link-color: rgb(179, 97, 212);
+}
+
+/* General styles for the body */
+html,
+body {
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.6;
+  height: 100%;
+  margin: 0;
+  font-size: var(--font-size);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  /* Need to change in html too (there in case styles don't load, still looks ok) */
+  width: 350px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 3vh !important;
+}
+
+div {
+  padding-bottom: 3vh;
+}
+
+div>* {
+  /* max-width: 800px; */
+  /* margin: 0 auto; */
+  padding: 0 30vw;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--visited-link-color);
+}
+
+/* Apply styles to paragraphs */
+p {
+  /* Base font size using rem for responsiveness */
+  margin-bottom: 1.5rem;
+  /* Space between paragraphs */
+}
+
+h1 {
+  font-size: calc(var(--font-size) * 2);
+  margin-bottom: 4vh;
+  text-align: center;
+  padding-top: 1vh;
+}
+
+p#welcome+ol {
+  margin-bottom: 2vh;
+}
+
+p#tips+ul {
+  margin-bottom: 5vh;
+}
+
+h2 {
+  font-size: calc(var(--font-size) * 1.5);
+  margin-bottom: 1rem;
+}
+
+h2:not(:first-of-type) {
+  margin-top: 2rem;
+}
+
+div ul {
+  margin-bottom: 2vh;
+}
+
+.color-scheme-wrapper {
+  flex: 1;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.light-mode-hide {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark-mode-hide {
+    display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .light-mode-hide {
+    display: initial;
+  }
+}
+
+/* Toggle itself */
+
+input[type="checkbox"] {
+  opacity: 0.00001;
+  position: absolute;
+}
+
+::selection {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+label {
+  font-size: calc(var(--font-size) * 0.9);
+  cursor: pointer;
+  position: absolute;
+  background: var(--text-color);
+  color: var(--bg-color);
+  padding: 0.6rem;
+  top: 1rem;
+  left: 14rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  user-select: none;
+}
+
+label:active {
+  transform: translateY(1px);
+}
+
+label:after {
+  height: 1.2rem;
+  width: 1.2rem;
+  margin-left: 1rem;
+  border: solid 1px var(--bg-color);
+  text-align: center;
+  border-radius: 1px;
+  color: transparent;
+}
+
+#color-mode:checked+label:after {
+  color: var(--bg-color);
+}
+
+@media (max-width: 1300px) {
+  div>* {
+    /* max-width: 800px; */
+    /* margin: 0 auto; */
+    padding: 0 20vw;
+  }
+
+  h1 {
+    padding-top: 2vh;
+  }
+
+  label {
+    top: 1rem;
+    left: 3rem;
+  }
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+  img {
+    width: 175px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 8vh !important;
+  }
+
+  div>* {
+    /* max-width: 800px; */
+    /* margin: 0 auto; */
+    padding: 0 10vw;
+  }
+
+  h1 {
+    font-size: calc(var(--font-size) * 1.75);
+    padding-top: 0;
+  }
+
+  h2 {
+    font-size: calc(var(--font-size) * 1.25);
+  }
+
+  p {
+    font-size: calc(var(--font-size) * 0.95);
+  }
+
+  label {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  div {
+    padding-bottom: 1vh;
+  }
+}
