@@ -162,8 +162,6 @@ label:after {
 
 @media (max-width: 1300px) {
   div>* {
-    /* max-width: 800px; */
-    /* margin: 0 auto; */
     padding: 0 20vw;
   }
 
@@ -179,17 +177,19 @@ label:after {
 
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
+  :root {
+    --font-size: 14px;
+  }
+
   img {
     width: 175px;
     height: 100px;
     display: block;
     margin: 0 auto;
-    padding-top: 8vh !important;
+    padding-top: 12vh !important;
   }
 
   div>* {
-    /* max-width: 800px; */
-    /* margin: 0 auto; */
     padding: 0 10vw;
   }
 
